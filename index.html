@@ -86,6 +86,10 @@
             border-radius: 50%;
             object-fit: center;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.5s ease;
+        }
+        .profile-info img:hover {
+            transform: scale(1.05);
         }
         .profile-info div {
             flex: 1;
@@ -111,11 +115,13 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .profile-info button:hover {
             background-color: #81c784;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
         /* Social Catalog */
@@ -133,11 +139,45 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+            animation: borderPulse 3s infinite alternate;
         }
+        
+        /* Animated Border */
+        @keyframes borderPulse {
+            0% {
+                border-color: #4CAF50;
+                box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+            }
+            50% {
+                border-color: #81c784;
+                box-shadow: 0 0 15px rgba(129, 199, 132, 0.5);
+            }
+            100% {
+                border-color: #2e7d32;
+                box-shadow: 0 0 10px rgba(46, 125, 50, 0.3);
+            }
+        }
+        
         .social-catalog .card:hover {
             transform: translateY(-10px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            animation: borderGlow 1.5s infinite alternate;
         }
+        
+        @keyframes borderGlow {
+            0% {
+                border-color: #4CAF50;
+                box-shadow: 0 0 15px rgba(76, 175, 80, 0.5);
+            }
+            100% {
+                border-color: #81c784;
+                box-shadow: 0 0 25px rgba(129, 199, 132, 0.8);
+            }
+        }
+        
         .social-catalog .card h3 {
             font-size: 22px;
             margin-bottom: 1px;
@@ -153,9 +193,26 @@
             color: #4CAF50;
             font-size: 20px;
             transition: color 0.3s ease;
+            display: inline-block;
+            margin-top: 10px;
+            padding: 5px 15px;
+            border-radius: 4px;
+            background-color: rgba(76, 175, 80, 0.1);
         }
         .social-catalog .card a:hover {
             color: #81c784;
+            background-color: rgba(76, 175, 80, 0.2);
+            transform: scale(1.05);
+        }
+        
+        .social-catalog .card img {
+            width: 20%;
+            border-radius: 10px;
+            transition: transform 0.5s ease;
+        }
+        
+        .social-catalog .card img:hover {
+            transform: scale(1.2) rotate(5deg);
         }
 
         /* Footer */
@@ -270,17 +327,39 @@
     <source src="https://files.catbox.moe/tipw6f.mp3" type="audio/mp3">
     Browser Anda tidak mendukung elemen audio.
 </audio>
-<script> 
-     document.getElementById("shop").addEventListener("click", function() {
-        const Shop = document.getElementById("catalog-shop");
-        music.play();
-    });
-</script>
+
 <script>
+    // Fix untuk tombol Shop
+    document.addEventListener("DOMContentLoaded", function() {
+        const shopButton = document.querySelector('button[onclick="window.location.href=\'shop.html\'"]');
+        if (shopButton) {
+            shopButton.addEventListener("click", function() {
+                const music = document.getElementById("background-music");
+                music.play();
+            });
+        }
+    });
+    
+    // Script musik
     document.getElementById("play-music").addEventListener("click", function() {
         const music = document.getElementById("background-music");
         music.play();
     });
+    
+    // Meningkatkan animasi video background
+    const video = document.getElementById("background-video");
+    if (video) {
+        // Pastikan video berjalan lancar
+        video.addEventListener('canplaythrough', function() {
+            video.play();
+        });
+        
+        // Fallback jika video tidak bisa diputar
+        video.addEventListener('error', function() {
+            document.querySelector('.hero-image').style.backgroundImage = "url('https://files.catbox.moe/bdh66f.jpg')";
+            document.querySelector('.hero-image').style.backgroundSize = "cover";
+        });
+    }
 </script>
 
 </body>
