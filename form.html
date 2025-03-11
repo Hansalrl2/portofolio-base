@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pembelian - AxpawX1 Shop</title>
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #121212;
+  color: white;
+  padding: 20px;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+  background: #222;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.container h1 {
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+label {
+  text-align: left;
+  font-weight: bold;
+  margin-bottom: 5px;
+  width: 100%;
+  display: block;
+  padding-left: 10px;
+}
+
+input, button {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #444;
+  border-radius: 5px;
+  background-color: #333;
+  color: white;
+  font-size: 16px;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: #00ff99;
+  background-color: #444;
+}
+
+button {
+  background: green;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  background: #006400; /* Warna hijau lebih gelap saat hover */
+}
+
+button:focus {
+  border-color: #00ff99;
+}
+
+.back-btn {
+  display: block;
+  margin: 20px auto;
+  padding: 10px;
+  background: blue;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  max-width: 200px;
+  text-align: center;
+  transition: background 0.3s ease;
+}
+
+.back-btn:hover {
+  background: #2980b9;
+}
+  </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Form Pembelian</h1>
+    <p>Silakan isi data sebelum melakukan pembayaran.</p>
+
+    <form id="purchase-form">
+        <label for="name">Nama:</label>
+        <input type="text" id="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" required>
+        
+
+        <label for="product">Nama Produk:</label>
+        <input type="text" id="product" required readonly>
+
+        <label for="price">Harga:</label>
+        <input type="text" id="price" required readonly>
+
+        <button type="submit">Lanjutkan ke Pembayaran</button>
+    </form>
+
+    <a href="shop.html" class="back-btn">Kembali ke Shop</a>
+</div>
+
+<script>
+    // Ambil data produk dari query string
+    const params = new URLSearchParams(window.location.search);
+    const productName = params.get("product");
+    const productPrice = params.get("price");
+
+    if (productName && productPrice) {
+        document.getElementById("product").value = productName;
+        document.getElementById("price").value = productPrice;
+    }
+
+    // Handle Form Submit
+    document.getElementById("purchase-form").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const product = document.getElementById("product").value;
+        const price = document.getElementById("price").value;
+
+        // Buat pesan untuk WhatsApp
+        const message = `Halo, saya ingin membeli produk:\n\nNama: ${name}\nEmail: ${email}\nProduk: ${product}\nHarga: ${price}\n\nMohon informasi lebih lanjut.`;
+
+        // Encode pesan untuk WhatsApp
+        const whatsappUrl = `https://wa.me/6285171591882?text=${encodeURIComponent(message)}`;
+
+        // Redirect ke WhatsApp
+        window.location.href = whatsappUrl;
+    });
+</script>
+
+</body>
+</html>
