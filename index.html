@@ -1,1 +1,278 @@
-kontol
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hansalrl Portfolio - Web Developer & Creative Coder</title>
+    
+    <!-- Meta Tags SEO -->
+    <meta name="description" content="Portfolio Yohanes Sabattian Adeleony (Hansalrl) sebagai Web Developer & Creative Coder. Spesialisasi: JavaScript, HTML, CSS, Bot Development.">
+    <meta name="keywords" content="Hansalrl, Yohanes Sabattian Adeleony, Web Developer Indonesia, Bot Development, Creative Coder">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-color: #9c27b0;
+            --accent-color: #64ffda;
+            --dark-bg: #222;
+            --light-text: #e6f1ff;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--light-text);
+            background-color: var(--dark-bg);
+            line-height: 1.6;
+        }
+        
+        /* Hero Section */
+        .hero-image {
+            position: relative;
+            width: 100%;
+            height: 60vh;
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+        .hero-image video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        .hero-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(10, 25, 47, 0.7), rgba(156, 39, 176, 0.3));
+        }
+        
+        /* Header */
+        header {
+            background-color: rgba(34, 34, 34, 0.8);
+            padding: 40px 20px;
+            border-bottom: 1px solid #444;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 36px;
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        /* Profile Container */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: -50px auto 20px auto;
+            background-color: #121212;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            padding: 40px;
+        }
+        
+        /* Profile Info */
+        .profile-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: center;
+        }
+        .profile-info img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .profile-info img:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Button Styling */
+        .profile-info button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .profile-info button:hover {
+            background-color: #81c784;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        /* Social Media Cards */
+        .social-catalog {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 40px;
+            background-color: #121212;
+        }
+        .social-catalog .card {
+            background-color: #444;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            text-align: center;
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .social-catalog .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+        
+        /* Animated Border */
+        @keyframes borderPulse {
+            0% { border-color: #4CAF50; }
+            50% { border-color: #81c784; }
+            100% { border-color: #2e7d32; }
+        }
+        .social-catalog .card {
+            border: 2px solid transparent;
+            animation: borderPulse 3s infinite alternate;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #222;
+            color: white;
+            font-size: 14px;
+        }
+        
+        /* Particles.js */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-image { height: 22vh; }
+            .profile-info { flex-direction: column; }
+            .social-catalog { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Particles.js -->
+    <div id="particles-js"></div>
+    
+    <!-- Header -->
+    <header>
+        <h1>Portfolio Hansalrl</h1>
+    </header>
+    
+    <!-- Hero Section -->
+    <div class="hero-image">
+        <video autoplay muted loop id="background-video">
+            <source src="https://files.catbox.moe/bdh66f.mp4" type="video/mp4">
+            Browser tidak mendukung video.
+        </video>
+    </div>
+    
+    <!-- Profile Content -->
+    <div class="container">
+        <div class="profile-info">
+            <img src="https://files.catbox.moe/61da6r.jpeg" alt="Foto Profil">
+            <div>
+                <h2>Yohanes Sabattian Adeleony</h2>
+                <p>Saya seorang Web Developer yang fokus pada JavaScript, HTML/CSS, dan Bot Development. Saya berasal dari Semarang, Jawa Tengah.</p>
+                <button id="play-music">Play Music</button>
+                <button onclick="window.location.href='https://whatsapp.com/channel/0029Vb2GPuBBKfiAwbt0pU2Z'">WhatsApp Channel</button>
+                <button onclick="window.location.href='shop.html'">Shop</button>
+                <button onclick="window.location.href='music.html'">Music List</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Social Media Catalog -->
+    <div class="social-catalog">
+        <div class="card">
+            <img src="https://files.catbox.moe/lnphaf.jpg" alt="YouTube">
+            <h3>YouTube</h3>
+            <p>Review seputar script bot dan tutorial programming.</p>
+            <a href="https://youtube.com/@ehiyapedia" target="_blank">Lihat Profil</a>
+        </div>
+        <div class="card">
+            <img src="https://files.catbox.moe/p2eflq.jpg" alt="GitHub">
+            <h3>GitHub</h3>
+            <p>Temukan script bot free dan proyek open source.</p>
+            <a href="https://github.com/hansalrl2" target="_blank">Lihat Profil</a>
+        </div>
+        <div class="card">
+            <img src="https://files.catbox.moe/fx4jfo.jpg" alt="TikTok">
+            <h3>TikTok</h3>
+            <p>Konten tech tips dan kreatif lainnya.</p>
+            <a href="https://www.tiktok.com/@hansalrldigitalcloud" target="_blank">Lihat Profil</a>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Hansalrl</p>
+        <p>Semua Hak Dilindungi | Support By Ehiyapedia Tech Connect</p>
+    </footer>
+    
+    <!-- Audio -->
+    <audio id="background-music" loop>
+        <source src="https://files.catbox.moe/tipw6f.mp3" type="audio/mp3">
+        Browser tidak mendukung audio.
+    </audio>
+    
+    <!-- JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Particles.js Configuration
+        document.addEventListener("DOMContentLoaded", function() {
+            particlesJS("particles-js", {
+                particles: {
+                    number: { value: 50 },
+                    color: { value: "#9c27b0" },
+                    shape: { type: "circle" },
+                    move: { enable: true, speed: 2 }
+                }
+            });
+        });
+        
+        // Music Control
+        document.getElementById('play-music').addEventListener('click', () => {
+            const music = document.getElementById('background-music');
+            music.play();
+        });
+        
+        // Video Fallback
+        const video = document.getElementById('background-video');
+        video.addEventListener('error', () => {
+            document.querySelector('.hero-image').style.backgroundImage = "url('https://files.catbox.moe/bdh66f.jpg')";
+        });
+    </script>
+</body>
+</html>
