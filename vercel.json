@@ -1,0 +1,20 @@
+{
+  "routes": [
+    {
+      "src": "/",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/form",
+      "dest": "/form.html"
+    },
+    {
+      "src": "/music",
+      "dest": "/music.html"
+    },
+    {
+      "src": "/shop",
+      "dest": "/shop.html"
+    }
+  ]
+}
