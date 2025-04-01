@@ -5,15 +5,15 @@
       "dest": "/index.html"
     },
     {
-      "src": "/form",
+      "src": "/",
       "dest": "/form.html"
     },
     {
-      "src": "/music",
+      "src": "/",
       "dest": "/music.html"
     },
     {
-      "src": "/shop",
+      "src": "/",
       "dest": "/shop.html"
     }
   ]
