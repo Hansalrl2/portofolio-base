@@ -1,7 +1,7 @@
 {
   "routes": [
     {
-      "src": "hansalrl.zone.id",
+      "src": "/",
       "dest": "/home/anu.html"
     },
     {
