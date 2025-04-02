@@ -2,7 +2,7 @@
   "routes": [
     {
       "src": "/",
-      "dest": "/github.com/Hansalrl2/portofolio-base/blob/main/home/anu.html"
+      "dest": "/home/anu.html"
     },
     {
       "src": "/form",
