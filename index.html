@@ -2,14 +2,19 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <!-- Izinkan zoom user -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hansalrl - Modern Portfolio</title>
   <meta name="description" content="Hansalrl – Developer web dan cybersecurity enthusiast. Selalu belajar, berinovasi, dan berkarya di dunia coding (JavaScript, HTML, CSS) dan keamanan siber." />
   <meta name="keywords" content="Hansalrl, Developer, Web, Cybersecurity, JavaScript, HTML, CSS, Portfolio" />
+  <!-- Google Font untuk WIB Time Display (Cinzel) -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
   <!-- Font Awesome untuk ikon -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" />
   <!-- Typed.js untuk animasi running text -->
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <!-- Tambahan script dari website-widgets -->
+  <script src="https://website-widgets.pages.dev/dist/sienna.min.js" defer></script>
   <style>
     /* Mobile-first styling */
     * {
@@ -34,15 +39,16 @@
       font-size: 1.8rem;
       margin-bottom: 5px;
     }
-    /* Visitor Counter */
-    #visitor-counter {
+    /* WIB Time Display dengan font Cinzel */
+    #wib-time {
       position: absolute;
       top: 5px;
       right: 5px;
-      background: #4caf50;
+      background: #ff9800;
       padding: 3px 7px;
       border-radius: 5px;
       font-size: 0.8rem;
+      font-family: 'Cinzel', serif;
       color: #222;
     }
     /* Hero Section */
@@ -106,6 +112,16 @@
       object-fit: cover;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
       transition: transform 0.5s ease;
+      cursor: pointer;
+    }
+    /* Animasi zoom pada foto profil */
+    .animate-photo {
+      animation: zoomIn 0.5s ease;
+    }
+    @keyframes zoomIn {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
     }
     .profile-info img:hover {
       transform: scale(1.05);
@@ -127,7 +143,7 @@
       margin: 5px;
       padding: 8px 15px;
       font-size: 0.9rem;
-      background-color: #4caf50;
+      background-color: #ff9800;
       border: none;
       border-radius: 5px;
       color: #fff;
@@ -135,7 +151,7 @@
       transition: background-color 0.3s, transform 0.3s;
     }
     .profile-info button:hover {
-      background-color: #81c784;
+      background-color: #ffb74d;
       transform: translateY(-2px);
       box-shadow: 0 3px 10px rgba(0,0,0,0.2);
     }
@@ -152,7 +168,7 @@
     .skills #typing-text {
       font-size: 1.2rem;
       font-weight: bold;
-      color: #4caf50;
+      color: #ff9800;
       min-height: 40px;
     }
     .skills .github-stats {
@@ -189,19 +205,33 @@
       overflow: hidden;
       border: 2px solid transparent;
       animation: borderPulse 3s infinite alternate;
+      cursor: pointer;
+    }
+    /* Animasi border RGB warna-warni saat diklik */
+    .animate-border {
+      animation: rgbCycle 1s linear;
+    }
+    @keyframes rgbCycle {
+      0% { border-color: red; }
+      16% { border-color: orange; }
+      33% { border-color: yellow; }
+      50% { border-color: green; }
+      66% { border-color: blue; }
+      83% { border-color: purple; }
+      100% { border-color: red; }
     }
     @keyframes borderPulse {
       0% {
-        border-color: #4caf50;
-        box-shadow: 0 0 10px rgba(76,175,80,0.3);
+        border-color: #ff9800;
+        box-shadow: 0 0 10px rgba(255,152,0,0.3);
       }
       50% {
-        border-color: #81c784;
-        box-shadow: 0 0 15px rgba(129,199,132,0.5);
+        border-color: #ffb74d;
+        box-shadow: 0 0 15px rgba(255,183,77,0.5);
       }
       100% {
-        border-color: #2e7d32;
-        box-shadow: 0 0 10px rgba(46,125,50,0.3);
+        border-color: #e65100;
+        box-shadow: 0 0 10px rgba(230,81,0,0.3);
       }
     }
     .social-catalog .card:hover {
@@ -211,12 +241,12 @@
     }
     @keyframes borderGlow {
       0% {
-        border-color: #4caf50;
-        box-shadow: 0 0 15px rgba(76,175,80,0.5);
+        border-color: #ff9800;
+        box-shadow: 0 0 15px rgba(255,152,0,0.5);
       }
       100% {
-        border-color: #81c784;
-        box-shadow: 0 0 25px rgba(129,199,132,0.8);
+        border-color: #ffb74d;
+        box-shadow: 0 0 25px rgba(255,183,77,0.8);
       }
     }
     .social-catalog .card h3 {
@@ -231,18 +261,18 @@
     }
     .social-catalog .card a {
       text-decoration: none;
-      color: #4caf50;
+      color: #ff9800;
       font-size: 1rem;
       display: inline-block;
       margin-top: 5px;
       padding: 5px 10px;
       border-radius: 4px;
-      background-color: rgba(76,175,80,0.1);
+      background-color: rgba(255,152,0,0.1);
       transition: background-color 0.3s, transform 0.3s;
     }
     .social-catalog .card a:hover {
-      color: #81c784;
-      background-color: rgba(76,175,80,0.2);
+      color: #ffb74d;
+      background-color: rgba(255,152,0,0.2);
       transform: scale(1.05);
     }
     .social-catalog .card img {
@@ -254,6 +284,13 @@
     }
     .social-catalog .card img:hover {
       transform: scale(1.2) rotate(5deg);
+    }
+    /* Kelas khusus untuk tiap card jika perlu */
+    .social-catalog .card.tiktok,
+    .social-catalog .card.youtube,
+    .social-catalog .card.github,
+    .social-catalog .card.instagram {
+      border: 2px solid #ff9800;
     }
     /* Footer */
     footer {
@@ -267,7 +304,7 @@
       position: fixed;
       bottom: 20px;
       right: 20px;
-      background: #4caf50;
+      background: #ff9800;
       color: #222;
       padding: 10px 15px;
       border-radius: 50%;
@@ -278,22 +315,19 @@
       transition: background 0.3s;
     }
     #back-to-top:hover {
-      background: #81c784;
+      background: #ffb74d;
     }
     /* Media Queries */
-    /* Extra small devices (320px and up) */
     @media (min-width: 320px) {
       header h1 { font-size: 1.6rem; }
       .hero { height: 35vh; }
     }
-    /* Small devices (480px and up) */
     @media (min-width: 480px) {
       header h1 { font-size: 1.8rem; }
       .hero { height: 40vh; }
       .profile-info img { width: 140px; height: 140px; }
       .profile-info h2 { font-size: 1.6rem; }
     }
-    /* Medium devices (768px and up) */
     @media (min-width: 768px) {
       .profile-info {
         flex-direction: row;
@@ -304,14 +338,12 @@
       .skills .github-stats { flex-direction: row; }
       .social-catalog { grid-template-columns: repeat(2, 1fr); }
     }
-    /* Large devices (1024px and up) */
     @media (min-width: 1024px) {
       header h1 { font-size: 2rem; }
       .hero { height: 50vh; }
       .container { padding: 40px; }
       .social-catalog { grid-template-columns: repeat(3, 1fr); }
     }
-    /* Extra large devices (1440px and up) */
     @media (min-width: 1440px) {
       .profile-info h2 { font-size: 2rem; }
       .skills h2 { font-size: 2rem; }
@@ -319,10 +351,10 @@
   </style>
 </head>
 <body>
-  <!-- Header dengan Visitor Counter -->
+  <!-- Header dengan WIB Time Display -->
   <header>
     <h1>Hansalrl</h1>
-    <div id="visitor-counter">Loading visitors...</div>
+    <div id="wib-time"></div>
   </header>
 
   <!-- Hero Section with Video Background -->
@@ -340,7 +372,7 @@
   <!-- Profile Section -->
   <div class="container">
     <div class="profile-info">
-      <img src="https://files.catbox.moe/61da6r.jpeg" alt="Foto Profil" />
+      <img src="https://files.catbox.moe/61da6r.jpeg" alt="Foto Profil" id="profile-photo" />
       <div>
         <h2>Hansalrl</h2>
         <p>
@@ -372,23 +404,29 @@
 
   <!-- Social Catalog -->
   <div class="social-catalog">
-    <div class="card">
+    <div class="card youtube" onclick="animateBorder(this)">
       <img src="https://files.catbox.moe/lnphaf.jpg" alt="Youtube" />
       <h3>Youtube</h3>
       <p>Review seputar script bot.</p>
       <a href="https://youtube.com/@ehiyapedia?si=D9mOdGAtAM7zo8-5" target="_blank">Lihat Profil</a>
     </div>
-    <div class="card">
+    <div class="card github" onclick="animateBorder(this)">
       <img src="https://files.catbox.moe/p2eflq.jpg" alt="GitHub" />
       <h3>GitHub</h3>
       <p>Temukan seputar base script bot free.</p>
       <a href="https://github.com/hansalrl" target="_blank">Lihat Profil</a>
     </div>
-    <div class="card">
+    <div class="card tiktok" onclick="animateBorder(this)">
       <img src="https://files.catbox.moe/fx4jfo.jpg" alt="Tiktok" />
       <h3>Tiktok</h3>
       <p>Semua hanya tentang konten semata.</p>
       <a href="https://www.tiktok.com/@hansalrldigitalcloud?_t=ZS-8ub0wprpwsp&_r=1" target="_blank">Lihat Profil</a>
+    </div>
+    <div class="card instagram" onclick="animateBorder(this)">
+      <img src="https://via.placeholder.com/150?text=Instagram" alt="Instagram" />
+      <h3>Instagram</h3>
+      <p>Konten inspiratif dan visual menarik.</p>
+      <a href="https://www.instagram.com/" target="_blank">Lihat Profil</a>
     </div>
   </div>
 
@@ -445,17 +483,16 @@
       });
     });
     
-    // Visitor counter menggunakan CountAPI (namespace: hansalrl, key: visits)
-    document.addEventListener("DOMContentLoaded", function() {
-      fetch("https://api.countapi.xyz/hit/hansalrl/visits")
-        .then(response => response.json())
-        .then(data => {
-          document.getElementById("visitor-counter").innerText = `Visitors: ${data.value}`;
-        })
-        .catch(() => {
-          document.getElementById("visitor-counter").innerText = "Visitors: 0";
-        });
-    });
+    // Tampilkan waktu WIB (Waktu Indonesia Barat)
+    function updateWIBTime() {
+      const now = new Date();
+      const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+      const wib = new Date(utc + (3600000 * 7));
+      const timeString = wib.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+      document.getElementById("wib-time").innerText = "WIB: " + timeString;
+    }
+    updateWIBTime();
+    setInterval(updateWIBTime, 1000);
     
     // Back-to-Top Button
     const backToTop = document.getElementById("back-to-top");
@@ -467,10 +504,25 @@
       }
     });
     backToTop.addEventListener("click", function() {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+    
+    // Fungsi untuk animasi border RGB saat kartu diklik
+    function animateBorder(element) {
+      // Simpan animasi sebelumnya (jika ada)
+      const prevAnimation = element.style.animation;
+      // Set animasi rgbCycle
+      element.style.animation = 'rgbCycle 1s linear';
+      setTimeout(() => {
+        // Kembalikan animasi borderPulse
+        element.style.animation = 'borderPulse 3s infinite alternate';
+      }, 1000);
+    }
+    
+    // Animasi foto profil saat diklik (zoom in)
+    document.getElementById("profile-photo").addEventListener("click", function() {
+      this.classList.add("animate-photo");
+      setTimeout(() => { this.classList.remove("animate-photo"); }, 500);
     });
   </script>
 </body>
