@@ -2,7 +2,7 @@
   "routes": [
     {
       "src": "/",
-      "dest": "/abgah.html"
+      "dest": "/home/anu.html"
     },
     {
       "src": "/form",
